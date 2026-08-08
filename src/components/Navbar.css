@@ -1,0 +1,92 @@
+.app-nav {
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  position: fixed;
+  width: 100%;
+  z-index: 50;
+  top: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.app-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 var(--margin-desktop);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  height: 64px;
+}
+
+.app-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.app-brand-logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.app-nav-links {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .app-nav-links {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-left: var(--spacing-lg);
+  }
+}
+
+.app-nav-link {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  padding-bottom: 4px;
+  transition: all 0.2s ease;
+}
+
+.app-nav-link:hover {
+  color: var(--primary);
+}
+
+.app-nav-link.active {
+  color: var(--primary);
+  font-weight: 700;
+  border-bottom: 2px solid var(--primary);
+}
+
+.app-nav-profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-btn:hover {
+  background: var(--surface-low);
+  transform: scale(1.05);
+}
+
+.profile-btn:active {
+  transform: scale(0.95);
+}
