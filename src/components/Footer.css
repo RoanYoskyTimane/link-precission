@@ -1,0 +1,55 @@
+.app-footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+.app-footer-container {
+  width: 100%;
+  padding: var(--spacing-lg) var(--margin-desktop);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .app-footer-container {
+    flex-direction: row;
+  }
+}
+
+.footer-brand {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-md);
+  font-size: 14px;
+}
+
+.footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--primary);
+  opacity: 1;
+}
+
+.footer-copy {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
