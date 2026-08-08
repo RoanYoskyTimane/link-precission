@@ -11,9 +11,7 @@ import { EditModal } from './components/EditModal';
 import { NotificationContainer } from './components/Notification';
 import type { ToastMessage } from './components/Notification';
 
-//中央 API configuration from .env
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api/v1';
-// Direct redirects are served at the backend root (e.g., http://localhost:3000)
 const REDIRECT_BASE_URL = API_BASE_URL.replace(/\/api\/v1\/?$/, '') || 'http://localhost:3000';
 
 function App() {
@@ -21,7 +19,7 @@ function App() {
     const saved = localStorage.getItem('shortened_urls');
     return saved ? JSON.parse(saved) : [];
   });
-  
+
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
   const [editingLink, setEditingLink] = useState<UrlItemType | null>(null);
 
@@ -40,9 +38,9 @@ function App() {
     const fetchLatestStats = async () => {
       const saved = localStorage.getItem('shortened_urls');
       const currentLinks: UrlItemType[] = saved ? JSON.parse(saved) : [];
-      
+
       if (currentLinks.length === 0) return;
-      
+
       const updatedLinks = await Promise.all(
         currentLinks.map(async (link) => {
           try {
@@ -62,7 +60,7 @@ function App() {
           return link;
         })
       );
-      
+
       setLinks(updatedLinks);
       localStorage.setItem('shortened_urls', JSON.stringify(updatedLinks));
     };
@@ -175,11 +173,11 @@ function App() {
   // Compute stats metrics
   const totalLinks = links.length;
   const totalClicks = links.reduce((sum, link) => sum + (link.accessCount ?? 0), 0);
-  
+
   // Find most active link
   let mostActiveCode: string | null = null;
   let mostActiveClicks = 0;
-  
+
   links.forEach((link) => {
     const clicks = link.accessCount ?? 0;
     if (clicks > mostActiveClicks) {
